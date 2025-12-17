@@ -294,8 +294,41 @@ export default function BookingPage() {
                 </div>
               )}
 
-              <Button type="submit" size="lg" className="w-full" disabled={bookingLoading || !checkIn || !checkOut}>
-                {bookingLoading ? "Processing..." : "Confirm Booking"}
+              <Button 
+                type="button" 
+                size="lg" 
+                className="w-full" 
+                disabled={!checkIn || !checkOut || numberOfNights < 1}
+                onClick={() => {
+                  if (!checkIn || !checkOut) {
+                    setError("Please select check-in and check-out dates")
+                    return
+                  }
+                  if (numberOfNights < 1) {
+                    setError("Check-out date must be after check-in date")
+                    return
+                  }
+                  // Store booking data and redirect to payment
+                  const bookingData = {
+                    hotelId: Number(hotelId),
+                    roomId: Number(roomId),
+                    hotelName: hotel?.name,
+                    roomType: room?.type,
+                    checkInDate: format(checkIn, "yyyy-MM-dd"),
+                    checkOutDate: format(checkOut, "yyyy-MM-dd"),
+                    guests,
+                    specialRequests: specialRequests || "",
+                    nights: numberOfNights,
+                    roomPrice,
+                    subtotal,
+                    tax,
+                    total,
+                  }
+                  localStorage.setItem("pendingBooking", JSON.stringify(bookingData))
+                  router.push("/payment")
+                }}
+              >
+                Proceed to Payment
               </Button>
             </form>
           </div>
