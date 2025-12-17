@@ -88,6 +88,11 @@ export default function BookingPage() {
       return
     }
 
+    if (guests < 1 || (room?.capacity && guests > room.capacity)) {
+      setError(`Number of guests must be between 1 and ${room?.capacity || 4}`)
+      return
+    }
+
     setBookingLoading(true)
 
     try {
@@ -97,14 +102,18 @@ export default function BookingPage() {
         checkInDate: format(checkIn, "yyyy-MM-dd"),
         checkOutDate: format(checkOut, "yyyy-MM-dd"),
         guests,
-        specialRequests,
+        specialRequests: specialRequests || "",
         totalPrice: total,
       }
 
-      await api.createBooking(bookingData)
+      console.log("Creating booking with data:", bookingData)
+      const response = await api.createBooking(bookingData)
+      console.log("Booking created successfully:", response)
       setBookingSuccess(true)
     } catch (err: any) {
-      setError(err.message || "Failed to create booking. Please try again.")
+      console.error("Booking error:", err)
+      const errorMessage = err.message || err.toString() || "Failed to create booking. Please try again."
+      setError(errorMessage)
     } finally {
       setBookingLoading(false)
     }

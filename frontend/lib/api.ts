@@ -85,6 +85,14 @@ function handleMockResponse<T>(endpoint: string, method: string): T {
 
   // Bookings endpoints
   if (endpoint.includes("/bookings")) {
+    if (method === "POST") {
+      // Mock successful booking creation
+      return { 
+        id: Math.floor(Math.random() * 1000),
+        status: "CONFIRMED",
+        message: "Booking created successfully (demo mode)"
+      } as T
+    }
     if (endpoint.includes("/bookings/user") || endpoint.includes("/bookings/all")) {
       return mockBookings as T
     }
