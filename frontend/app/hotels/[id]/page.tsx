@@ -138,25 +138,25 @@ export default function HotelDetailsPage() {
             />
             <div className="grid grid-cols-2 gap-4">
               <div
-                className="h-[11.5rem] rounded-lg bg-muted bg-cover bg-center"
+                className="h-46 rounded-lg bg-muted bg-cover bg-center"
                 style={{
                   backgroundImage: 'url(https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=400&h=400&fit=crop&q=80)',
                 }}
               />
               <div
-                className="h-[11.5rem] rounded-lg bg-muted bg-cover bg-center"
+                className="h-46 rounded-lg bg-muted bg-cover bg-center"
                 style={{
                   backgroundImage: 'url(https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?w=400&h=400&fit=crop&q=80)',
                 }}
               />
               <div
-                className="h-[11.5rem] rounded-lg bg-muted bg-cover bg-center"
+                className="h-46 rounded-lg bg-muted bg-cover bg-center"
                 style={{
                   backgroundImage: 'url(https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&h=400&fit=crop&q=80)',
                 }}
               />
               <div
-                className="h-[11.5rem] rounded-lg bg-muted bg-cover bg-center"
+                className="h-46 rounded-lg bg-muted bg-cover bg-center"
                 style={{
                   backgroundImage: 'url(https://images.unsplash.com/photo-1568495248636-6432b97bd949?w=400&h=400&fit=crop&q=80)',
                 }}

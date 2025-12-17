@@ -278,7 +278,7 @@ export default function PaymentPage() {
                         <div className="flex flex-col items-center justify-center p-6 bg-muted rounded-lg">
                           <div className="w-48 h-48 bg-white p-4 rounded-lg mb-4">
                             {/* QR Code placeholder */}
-                            <div className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 rounded flex items-center justify-center">
+                            <div className="w-full h-full bg-linear-to-br from-gray-200 to-gray-300 rounded flex items-center justify-center">
                               <QrCode className="h-24 w-24 text-gray-600" />
                             </div>
                           </div>
